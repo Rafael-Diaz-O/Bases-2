@@ -4,3 +4,6 @@ db -> muestra la base donde me encuentro
 show collecitons -> muestra las coleciones en la base de datos en la que estoy parado
 db.version() -> saber la versión 
 db.stats() -> ver las estadísticas de la base de datos 
+use micollection -> entrar en la colection 
+db.holamundo.insert({nombre:"Hola mundo" , universidad:"uis"}) -> crear una colletion 
+use sample_airbnb -> con el use me muevo entre bases de datos 

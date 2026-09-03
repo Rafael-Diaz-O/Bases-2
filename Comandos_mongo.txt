@@ -1,0 +1,6 @@
+Comandos de mongo 
+show dbs -> muestra las bases coectdas 
+db -> muestra la base donde me encuentro 
+show collecitons -> muestra las coleciones en la base de datos en la que estoy parado
+db.version() -> saber la versión 
+db.stats() -> ver las estadísticas de la base de datos 

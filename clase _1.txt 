@@ -16,4 +16,6 @@ $in -> coincdencia contra un valor de la lisa osea contra un array
 
 db.listingsAndReviews.find({bedrooms:{$in:[20,8,9]}},{name:1,bedrooms:1}) -> Muestra los elemontas que tenga en la base datos que tengan en sos numeros o alguno de esos numeros 
 
+$or o $and y se colocan los elemntos de filtrado por calve valor es como crer una array 
 
+db.listingsAndReviews.find({$and:[{bedrooms:{$gte:8}},{accommodates:{$eq:16}}]},{name:1,bedrooms:1}) -> pratica del and 

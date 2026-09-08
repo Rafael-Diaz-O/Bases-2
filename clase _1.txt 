@@ -13,3 +13,7 @@ db.listingsAndReviews.find({bedrooms:{$lte:8}},{name:1}) -> lte seria el menor i
 
 
 $in -> coincdencia contra un valor de la lisa osea contra un array 
+
+db.listingsAndReviews.find({bedrooms:{$in:[20,8,9]}},{name:1,bedrooms:1}) -> Muestra los elemontas que tenga en la base datos que tengan en sos numeros o alguno de esos numeros 
+
+

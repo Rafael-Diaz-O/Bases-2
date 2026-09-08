@@ -1,0 +1,15 @@
+-----Algunos Filtros--------
+
+db.listingsAndReviews.find({}).count() -> contar la cantidad de datos del json 
+db.listingsAndReviews.find({},{description:1,name:1,bedrooms:1}) -> Imprimir la info 
+db.listingsAndReviews.find({},{description:1,name:1,bedrooms:1,_id:0}) -> Para que el id no aparesca 
+db.listingsAndReviews.find({},{description:1,name:1,bedrooms:1,_id:0}).sort({bedrooms:1}) -> con sort se pueden ordenar los diferentes dats de menor a myor etc 
+db.listingsAndReviews.find({},{description:1,name:1,bedrooms:1,_id:0}).sort({bedrooms:-1}).limit(5) -> se limita la cantidad de elementos 
+fideONE -> es mas rapido que limit 1 para mostrar el primer datos 
+
+db.listingsAndReviews.find({bedrooms:{$gt:8}}) -> Seria el gt u mayor que lo que sea mayor a 8 
+db.listingsAndReviews.find({bedrooms:{$gt:8}},{name:1}	) -> muestra la info que cumpla esa condicion 
+db.listingsAndReviews.find({bedrooms:{$lte:8}},{name:1}) -> lte seria el menor igual a 8 
+
+
+$in -> coincdencia contra un valor de la lisa osea contra un array 

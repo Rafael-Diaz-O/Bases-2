@@ -1,0 +1,8 @@
+1.
+db.restaurants.find({$and:[{borough:"Brooklyn"},{cuisine:{$eq:"Italian"}}]})
+
+db.restaurants.find({$and:[{borough:"Brooklyn"},{cuisine:{$eq:"Italian"}}]})
+2. 
+
+
+

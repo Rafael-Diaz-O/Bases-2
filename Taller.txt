@@ -4,5 +4,28 @@ db.restaurants.find({$and:[{borough:"Brooklyn"},{cuisine:{$eq:"Italian"}}]})
 db.restaurants.find({$and:[{borough:"Brooklyn"},{cuisine:{$eq:"Italian"}}]})
 2. 
 
+db.restaurants.find({ $or:[{cuisine:{$not:{$eq:"American"}}},{borough:{$eq:"Queens"}}]},{name:1,cuisine:1})
 
+3.
 
+db.restaurants.find({$and:[{cuisine:{$eq:"Chinese"}},{"grades.score":{$gt:20}}]})
+
+4. 
+
+db.restaurants.find({$or:[{cuisine:{$eq:"Manhattan"}},{"grades.score":{$gte:25}}]})
+
+5. 
+
+db.restaurants.find({$and:[{cuisine:{$eq:"Mexican"}},{"grades.score":{$lte:10}}]},{name:1})
+
+6. 
+
+db.restaurants.find({"grades.score":{$gt:15}},{name:1})
+
+7. 
+
+db.restaurants.find({$and:[{$or:[{cuisine:{$eq:"Mexican"}},{cuisine:{$eq:"Italian"}}]},{borough:"Bronx"}]},{borough:1,cuisine:1})
+
+8. 
+
+db.restaurants.find({$nor:[{$or:[{$and:[{cuisine:{$eq:"Chinese"}},{cuisine:{$eq:"thais"}}]},{borough:"Staten Island"}]}]},{borough:1,cuisine:1})

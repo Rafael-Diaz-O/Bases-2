@@ -1,0 +1,9 @@
+db.sales.find({items:{$elemMatch:{name:"pens",tags:{$all:["office","school"]}}}})
+
+db.movies.find({$expr:{$gte:["$imdb.rating","$tomatoes.critic.fresh"] }})
+
+db.movies.find({$expr:{$gte:["$imdb.rating","$tomatoes.critic.fresh"] }},{name:1,imdb:1,critic:1})
+
+db.movies.find(	{title:{$regex:/dly$/i	}},{title:1,directors:1})
+
+

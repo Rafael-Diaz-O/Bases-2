@@ -1,0 +1,6 @@
+db.restaurants.find({$expr:{$gte:[{$size:"$grades"},5]}},{name:1,grades:1})
+
+db.restaurants.find({$expr:{$and:[{$gte:[{$size:"$grades"},5]},	
+          {$gte:[{$avg:"$grades.score"},15]}]}},{name:1,grades:1})
+
+          

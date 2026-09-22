@@ -2,3 +2,25 @@ Rafael Diaz Orostegui -2242035 grupo:C1
 
 1. 
 
+db.restaurants.find({$expr:{$and:[{$gte:[{$size:"$grades"},5]},	
+          {$gte:[{$avg:"$grades.score"},15]}]}},{name:1,grades:1})
+
+2. 
+
+db.restaurants.find({$and:[{cuisine:"Italian"},{ "grades.grade": "A"}, {"grades.score":{$gt:25}}]},{name:1,score:1,grades:1,cuisine:1})
+
+3. 
+
+db.restaurants.find({name: { $regex: /^Pizza/i },grades: { $size: 2 }})
+
+4. 
+
+db.restaurants.find({
+  $jsonSchema: {
+    bsonType: "object",
+    required: ["name"],
+    properties: { name: { bsonType: "string" } }
+  }})
+
+5. 
+

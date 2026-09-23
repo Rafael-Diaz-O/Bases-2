@@ -1,0 +1,22 @@
+Operadores de Evaluación y Arreglos (pag 33)
+
+5. 
+
+db.restaurants.find(
+  {
+  $and:[
+  				{$or:[
+            {name:{$regex:"Sushi" , $options: "i"}},
+          	{cuisine:{$regex:"Sushi",$options:"i"}}
+          ]},{$expr:{$gt:[{$avg:"$grades.score"},18]}}
+    ]}, {name:1,cuisine:1,_id:0,})
+
+6. 
+
+
+
+
+Operadores de proyección y Geoespaciales (pag 48)
+
+1. 
+

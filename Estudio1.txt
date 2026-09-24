@@ -20,3 +20,12 @@ Operadores de proyección y Geoespaciales (pag 48)
 
 1. 
 
+var neighborhood = db.neighborhoods.findOne({name:"Williamsburg"});
+
+db.restaurants.find({$and:[{
+  "address.coord":{$geoWithin:{$geometry: neighborhood.geometry}}},
+                           {grades:{$size:2}}]}
+)
+
+2. 
+

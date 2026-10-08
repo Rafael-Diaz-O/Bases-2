@@ -1,0 +1,89 @@
+Rafael Diaz Orostegui -224203 grupo: C1
+
+1. 
+
+  db.restaurants.insertOne({
+    name: "Mi Pizzería",
+    borough: "Brooklyn",
+    cuisine: "Italian",
+    address: { street: "123 Pizza St", zipcode: "11201", coord: [-73.95, 40.68] }
+  });
+
+  2. 
+
+  db.restaurants.updateOne({name:"Mi Pizzería"},{$set:{name:"Pizzería Italiana"}})
+
+3. 
+
+db.restaurants.updateMany({borough: "Brooklin",cuisine: "Italian"},{$set:{famoso: true}})
+
+4. 
+
+  db.restaurants.replaceOne(
+    { name: "Sushi Master" },
+    { name: "Samurai Sushi", borough: "Manhattan", cuisine: "Japanese" }
+  );
+
+5. 
+
+db.restaurants.deleteOne({name:"El Taconazo"})
+
+6. 
+
+db.restaurants.deleteMany({borough: "Queens"})
+
+7. 
+
+db.restaurants.aggregate([{$group:{_id:"$cuisine",total:{$sum: 1}}}])
+
+8. 
+
+  db.restaurants.aggregate([{ $match: { borough: "Brooklyn" } },{ $sort: { "grades.score": -1 } },
+    { $limit: 5 },{ $project: { name: 1, cuisine: 1, "grades.score": 1 } }
+  ]);
+
+9. 
+
+  db.restaurants.aggregate([
+    { $unwind: "$grades" },{ $group: { _id: "$cuisine", promedio: { $avg: "$grades.score" } } },
+    { $sort: { promedio: -1 } }
+  ]);
+
+10 . 
+
+db.restaurants.find({name:{$regex: "Pizza",$options: "i"}})
+
+11. 
+
+  db.restaurants.aggregate([
+    { $group: { _id: { borough: "$borough", cuisine: "$cuisine" }, total: { $sum: 1 } } },
+    { $sort: { total: -1 } }
+  ]);
+  
+12.
+
+db.restaurants.find({grades : {$exists : true , $size: 4}})
+
+13. 
+
+  db.restaurants.insertOne({
+    name: "Tienda de Arepas",
+    borough: "Bronx",
+    cuisine: "Colombian",
+    grades: [
+      { date: new Date(), grade: "A", score: 95 },
+      { date: new Date(), grade: "B", score: 80 }
+    ]
+  });
+
+14. 
+
+  db.restaurants.aggregate([
+    { $match: { borough: "Manhattan" } },
+    { $group: { _id: "$cuisine", total: { $sum: 1 } } },
+    { $sort: { total: -1 } },
+    { $limit: 3 }
+  ]);
+
+  
+

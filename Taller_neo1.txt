@@ -1,1 +1,37 @@
 Rafael Diaz Orostegui -224203 grupo: C1
+
+1. Películas después del año 2000 con rating alto
+
+MATCH (u:User)-[r:RATED]->(m:Movie)
+WHERE m.released > 2000 AND r.rating >= 8
+RETURN 
+    m.title AS Película,
+    m.released AS Año,
+    round(avg(r.rating), 2) AS PromedioRating,
+    count(r) AS CantidadReseñas
+ORDER BY PromedioRating DESC
+LIMIT 10;
+
+2. Actores cuyo nombre empieza por “M” y con más de 3
+películas
+
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie) 
+WHERE a.name STARTS WITH "M" 
+WITH a, COUNT(m) AS totalPeliculas 
+WHERE totalPeliculas > 3 
+RETURN a.name, totalPeliculas 
+ORDER BY totalPeliculas DESC;
+
+
+3. Películas sin tagline
+
+
+
+4.Caminos de actores conectados a “Tom Hanks” hasta 3
+niveles
+
+
+5. Actor y director en una misma película
+
+
+
